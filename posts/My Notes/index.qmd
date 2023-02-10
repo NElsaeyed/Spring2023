@@ -1,0 +1,52 @@
+---
+title: "Week 2"
+author: "Noon Elsaeyed"
+date: "2023-02-06"
+categories: [course,notes]
+---
+
+## Notes
+
+Here I will roughly draft some notes during class time, to be organized later.
+
+**FEBRUARY 6th, 2023**
+
+Using GitHub: generally a public platform
+
+How to commit changes to GitHub:
+
+Make changes on Posit\>Render\>Commit changes in GitHub and push.
+
+This is for Github Desktop.
+
+There is a way to do it on the browser when using Posit Cloud:
+
+Git tab\>Commit\>Push
+
+How to get a preview of the website while staying in RStudio:
+
+Tools\>Global Options\>R Markdown\>Viewer pane
+
+In the console: question mark before a function will open the help file for it.
+
+String means text anything in quotes " "
+
+Two question marks will open any file with the function name in it
+
+Two number with a colon in between will give a sequence (1:5) will give 1 2 3 4 5
+
+c() will make a list, separate the values by commas
+
+\<- is an assignment of values to a name (which will show up in the environment)
+
+sample(x = 1:6, size = 10, replace = TRUE, prob = rep(1/6,6))
+
+x= the options to sample from
+
+size= how many times to sample
+
+replace= whether or not to exclude an option once it is sampled
+
+prob= probability of choosing each option
+
+![](NotesIcon.jpg){width="374"}
