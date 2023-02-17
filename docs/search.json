@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Noon’s Blog",
     "section": "",
-    "text": "course\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 6, 2023\n\n\nNoon Elsaeyed\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\ngoals\n\n\ngeneral\n\n\n\n\n\n\n\n\n\n\n\nFeb 4, 2023\n\n\nNoon Elsaeyed\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\ngoals\n\n\ngeneral\n\n\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\n\nNo matching items"
+    "text": "Using qmd Files\n\n\n\n\n\n\n\nskills\n\n\ntips\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nNoon Elsaeyed\n\n\n\n\n\n\n  \n\n\n\n\nWeek 2\n\n\n\n\n\n\n\ncourse\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 6, 2023\n\n\nNoon Elsaeyed\n\n\n\n\n\n\n  \n\n\n\n\nMy First post\n\n\n\n\n\n\n\ngoals\n\n\ngeneral\n\n\n\n\n\n\n\n\n\n\n\nFeb 4, 2023\n\n\nNoon Elsaeyed\n\n\n\n\n\n\n  \n\n\n\n\nExample assignment\n\n\n\n\n\n\n\ngoals\n\n\ngeneral\n\n\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -39,7 +39,7 @@
     "href": "posts/My Notes/index.html",
     "title": "Week 2",
     "section": "",
-    "text": "Here I will roughly draft some notes during class time, to be organized later.\nFEBRUARY 6th, 2023\nUsing GitHub: generally a public platform\nHow to commit changes to GitHub:\nMake changes on Posit>Render>Commit changes in GitHub and push.\nThis is for Github Desktop.\nThere is a way to do it on the browser when using Posit Cloud:\nGit tab>Commit>Push\nHow to get a preview of the website while staying in RStudio:\nTools>Global Options>R Markdown>Viewer pane"
+    "text": "Here I will roughly draft some notes during class time, to be organized later.\nFEBRUARY 6th, 2023\nUsing GitHub: generally a public platform\nHow to commit changes to GitHub:\nMake changes on Posit>Render>Commit changes in GitHub and push.\nThis is for Github Desktop.\nThere is a way to do it on the browser when using Posit Cloud:\nGit tab>Commit>Push\nHow to get a preview of the website while staying in RStudio:\nTools>Global Options>R Markdown>Viewer pane\nIn the console: question mark before a function will open the help file for it.\nString means text anything in quotes ” ”\nTwo question marks will open any file with the function name in it\nTwo number with a colon in between will give a sequence (1:5) will give 1 2 3 4 5\nc() will make a list, separate the values by commas\n<- is an assignment of values to a name (which will show up in the environment)\nsample(x = 1:6, size = 10, replace = TRUE, prob = rep(1/6,6))\nx= the options to sample from\nsize= how many times to sample\nreplace= whether or not to exclude an option once it is sampled\nprob= probability of choosing each option"
   },
   {
     "objectID": "posts/Example_assignment/index.html",
@@ -54,5 +54,19 @@
     "title": "Example assignment",
     "section": "My mental imagery",
     "text": "My mental imagery\nMy mental imagery is like…"
+  },
+  {
+    "objectID": "posts/QMD Tips/index.html",
+    "href": "posts/QMD Tips/index.html",
+    "title": "Using qmd Files",
+    "section": "",
+    "text": "Here are a few things we should be able to do by the end of week 3:\n1. Be able to make a new .qmd document\nyou can either copy a post file and rename it\nor File>New Quarto Document> save as index.qmd in the posts folder\nor from the File tab in the viewer side of RStudio (without the top level IML that sets the parameters of the document like title/author/date)\n2. Be able to render a .qmd document\nfrom the source, from the build tab or from the console\n3. Explain the difference between the source editor view and visual editor view in Rstudio.\nThe visual view shows you the result of the formatting and how it would look in the website, while source view is just plain text with the markdown options\n4. Be able to insert simple markdown plain text (headers, lists, paragraphs), and render the document."
+  },
+  {
+    "objectID": "posts/QMD Tips/index.html#header-2",
+    "href": "posts/QMD Tips/index.html#header-2",
+    "title": "Using qmd Files",
+    "section": "Header 2",
+    "text": "Header 2\n\nHeader 3\n\nunordered list\nsub item 1\nsub item 2\n\nTo insert an image :\n\n5. Be aware of resources to help you learn more about markdown options.\nMarkdwon basics on the CrumpLab website\nitalics and bold\nsuperscript2 / subscript2\nstrikethrough\nverbatim code\n6. Be able to insert an R code chunk, and show the output in the rendered document.\nwrite stuff\n\n\n\n\n1+1\n\n[1] 2\n\n1:10\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\nprint(\"a title\")\n\n[1] \"a title\"\n\ncat(\"and another title after it \\n like this\")\n\nand another title after it \n like this\n\n\n\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\n\nmacro for quick insert\n\nor use alt>command>i to automatically get the r block\n7. Running R code chunks in a qmd\n\npressing play\ncopy/paste into console\nhighlight then command-enter (mac)to run selection at a time\nprecedence issues (first to last)\n\n8. Be aware of R code chunk options, and how to use eval, messages, error, warning, and echo.\n9. Be able to set code chunk options per chunk, and/or for the whole document. Understand rules for precedence (which options will apply if both are set.)\n10. Write inline r code.\n11. Explain how the rendering environment is different from the Rstudio environment.\n12. Be aware of more advanced quarto options for html documents, and try some of the options."
   }
 ]

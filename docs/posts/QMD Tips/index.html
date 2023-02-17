@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Noon Elsaeyed">
-<meta name="dcterms.date" content="2023-02-06">
+<meta name="dcterms.date" content="2023-02-15">
 
-<title>quartoCourseBlog - Week 2</title>
+<title>quartoCourseBlog - Using qmd Files</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -105,10 +168,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Week 2</h1>
+      <h1 class="title">Using qmd Files</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">course</div>
-                <div class="quarto-category">notes</div>
+                <div class="quarto-category">skills</div>
+                <div class="quarto-category">tips</div>
               </div>
                   </div>
   </div>
@@ -126,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 6, 2023</p>
+        <p class="date">February 15, 2023</p>
       </div>
     </div>
     
@@ -144,32 +207,84 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="notes" class="level2">
-<h2 class="anchored" data-anchor-id="notes">Notes</h2>
-<p>Here I will roughly draft some notes during class time, to be organized later.</p>
-<p><strong>FEBRUARY 6th, 2023</strong></p>
-<p>Using GitHub: generally a public platform</p>
-<p>How to commit changes to GitHub:</p>
-<p>Make changes on Posit&gt;Render&gt;Commit changes in GitHub and push.</p>
-<p>This is for Github Desktop.</p>
-<p>There is a way to do it on the browser when using Posit Cloud:</p>
-<p>Git tab&gt;Commit&gt;Push</p>
-<p>How to get a preview of the website while staying in RStudio:</p>
-<p>Tools&gt;Global Options&gt;R Markdown&gt;Viewer pane</p>
-<p>In the console: question mark before a function will open the help file for it.</p>
-<p>String means text anything in quotes ” ”</p>
-<p>Two question marks will open any file with the function name in it</p>
-<p>Two number with a colon in between will give a sequence (1:5) will give 1 2 3 4 5</p>
-<p>c() will make a list, separate the values by commas</p>
-<p>&lt;- is an assignment of values to a name (which will show up in the environment)</p>
-<p>sample(x = 1:6, size = 10, replace = TRUE, prob = rep(1/6,6))</p>
-<p>x= the options to sample from</p>
-<p>size= how many times to sample</p>
-<p>replace= whether or not to exclude an option once it is sampled</p>
-<p>prob= probability of choosing each option</p>
-<p><img src="NotesIcon.jpg" class="img-fluid" width="374"></p>
+<p><strong>Here are a few things we should be able to do by the end of week 3:</strong></p>
+<p><strong>1. Be able to make a new .qmd document</strong></p>
+<p>you can either copy a post file and rename it</p>
+<p>or File&gt;New Quarto Document&gt; save as index.qmd in the posts folder</p>
+<p>or from the File tab in the viewer side of RStudio (without the top level IML that sets the parameters of the document like title/author/date)</p>
+<p><strong>2. Be able to render a .qmd document</strong></p>
+<p>from the source, from the build tab or from the console</p>
+<p><strong>3. Explain the difference between the source editor view and visual editor view in Rstudio.</strong></p>
+<p>The visual view shows you the result of the formatting and how it would look in the website, while source view is just plain text with the markdown options</p>
+<p><strong>4. Be able to insert simple markdown plain text (headers, lists, paragraphs), and render the document.</strong></p>
+<section id="header-1" class="level1">
+<h1>Header 1</h1>
+<section id="header-2" class="level2">
+<h2 class="anchored" data-anchor-id="header-2">Header 2</h2>
+<section id="header-3" class="level3">
+<h3 class="anchored" data-anchor-id="header-3">Header 3</h3>
+<ul>
+<li><p>unordered list</p></li>
+<li><p>sub item 1</p></li>
+<li><p>sub item 2</p></li>
+</ul>
+<p>To insert an image :</p>
+<p><img src="Quartologo.jpg" class="img-fluid"></p>
+<p><strong>5. Be aware of resources to help you learn more about markdown options.</strong></p>
+<p>Markdwon basics on the CrumpLab website</p>
+<p><em>italics</em> and <strong>bold</strong></p>
+<p>superscript<sup>2</sup> / subscript<sub>2</sub></p>
+<p><del>strikethrough</del></p>
+<p><code>verbatim code</code></p>
+<p><strong>6. Be able to insert an R code chunk, and show the output in the rendered document.</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>write stuff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"a title"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a title"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"and another title after it </span><span class="sc">\n</span><span class="st"> like this"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>and another title after it 
+ like this</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+</div>
+<ul>
+<li>macro for quick insert</li>
+</ul>
+<p>or use alt&gt;command&gt;i to automatically get the r block</p>
+<p><strong>7. Running R code chunks in a qmd</strong></p>
+<ul>
+<li>pressing play</li>
+<li>copy/paste into console</li>
+<li>highlight then command-enter (mac)to run selection at a time</li>
+<li>precedence issues (first to last)</li>
+</ul>
+<p><strong>8. Be aware of R code chunk options, and how to use eval, messages, error, warning, and echo.</strong></p>
+<p><strong>9. Be able to set code chunk options per chunk, and/or for the whole document. Understand rules for precedence (which options will apply if both are set.)</strong></p>
+<p><strong>10. Write inline r code.</strong></p>
+<p><strong>11. Explain how the rendering environment is different from the Rstudio environment.</strong></p>
+<p><strong>12. Be aware of more advanced quarto options for html documents, and try some of the options.</strong></p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
