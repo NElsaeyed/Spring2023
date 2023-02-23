@@ -1,0 +1,116 @@
+---
+title: "Data Visualization"
+author: "Noon Elsaeyed"
+date: "2023-02-21"
+categories: [skills,tips]
+---
+
+### Week Four: Data Visaulization
+
+-   Data types: Show that you understand what is available to you in R. Note also, this goal overlaps with part of the midterm project. See the appendix on Data Types in the textbook for help. Write notes and R code chunks to demonstrate your knowledge
+
+```{r}
+# type of numeric data
+typeof(10)
+typeof(10.0)
+typeof(10L)
+
+# if you want to know if something is numeric (a double or an integer), you can use the function is.numeric() and it will tell you if it is numeric (TRUE) or not (FALSE).
+is.numeric(10L)
+is.numeric(10.0)
+is.numeric("Text")
+
+# Characters (also called “strings”) are any text between quotation marks.
+typeof("This is a character string")
+typeof('You can use double or single quotes')
+
+# This can include quotes, but you have to escape quotes using a backslash to signal that the quote isn’t meant to be the end of the string.
+my_string <- "The instructor said, \"R is cool,\" and the class agreed."
+# cat() prints the arguments
+
+cat(my_string)
+
+# Logical data (also sometimes called “Boolean” values) is one of two values: true or false. In R, we always write them in uppercase: TRUE and FALSE.
+class(TRUE)
+class(FALSE)
+
+```
+
+```{r}
+# assign 1 to the object named a
+a <- 1
+class(a)
+typeof(a)
+```
+```{r}
+# make a vector with a thing in it
+a_thing <- 1
+another_thing <- c(1,2)
+many_things <- c(1:10)
+
+# these are all now objects in the environment
+```
+
+
+-   Tidy Data: Show that you understand what this means. Give an example of data this is in tidy format, and data that is not.
+
+```{r}
+# load ggplot2 and some sample datasets
+library(tidyverse)
+
+# the starwars data is loaded by tidyverse
+#assign the starwars dataset to a variable (object) name
+starwars_copy<- starwars
+
+# check out some of the data types
+head(starwars_copy)
+class(starwars_copy$name) 
+class(starwars_copy$height)
+class(starwars_copy$mass)
+starwars_copy$sex
+is.numeric(starwars$name)
+is.numeric(starwars$height)
+typeof(starwars$name)
+typeof(starwars$mass)
+typeof(starwars_copy$mass)
+
+# plot some variables
+
+```
+
+-   ggplot2: We will continue learning about this across the semester. Show at a minimum that you can make a graph and add it to your blog. Try examples from the textbook. Show that you understand the layer concept. Identify aspects that are confusing to you so we can discuss them in class
+
+```{r}
+# make a data frame (table)
+my_df <- data.frame(a = 1:5, b = c("one","two","three","four","five"), random = runif(5,0,1))
+
+# access columns and rows with $ and []
+my_df$a
+my_df$random
+my_df[1,] # row 1, all columns
+my_df[,1] # column 1, all rows
+my_df[1:2,] # rows 1 and 2, all columns
+my_df[1:2,3] # rows 1 and 2, only column 3
+```
+
+```{r}
+# load some sample data
+survey_data <- read_csv("https://psyteachr.github.io/ads-v2/data/survey_data.csv")
+
+library(ggplot2)
+
+ggplot() # blank canvas
+ggplot(data = survey_data, mapping = aes(x = wait_time, y = satisfaction)) # data to pull from and assigning axis 
+# ggplot(survey_data, aes(x = wait_time, y = satisfaction)) shortened version of the same thing
+ggplot(survey_data, aes(x = wait_time, y = satisfaction)) +      # the plus sign signals more info/layers
+  geom_point() # scatter plot
+
+ggplot(survey_data, aes(x = wait_time, y = satisfaction)) +
+  geom_point(color="black", size=1) +
+  geom_point(color="#afa0e8", size=0.5) + # use color name or hex number
+  geom_smooth() + 
+  geom_smooth(method ="lm") # lm stands for linear model
+
+```
+
+![](DataVis.jpg)
