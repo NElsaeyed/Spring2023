@@ -1,0 +1,14 @@
+{
+  "hash": "415badf73b31a82128123a2c1aa58d96",
+  "result": {
+    "markdown": "---\ntitle: \"Data Import\"\nauthor: \"Noon Elsaeyed\"\ndate: \"2023-02-27\"\ncategories: [skills,tips]\n---\n\n\n### Week Five: Data Import\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)     # includes readr & tibble\n```\n\n::: {.cell-output .cell-output-stderr}\n```\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.1     ✔ purrr   1.0.1\n✔ tibble  3.1.8     ✔ dplyr   1.1.0\n✔ tidyr   1.3.0     ✔ stringr 1.5.0\n✔ readr   2.1.4     ✔ forcats 1.0.0\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n```\n:::\n\n```{.r .cell-code}\nlibrary(rio)           # for almost any data import/export\nlibrary(haven)         # for SPSS, Stata,and SAS files\nlibrary(readxl)        # for Excel files\nlibrary(googlesheets4) # for Google Sheets\n```\n:::\n\n\n# Write your own data\n\n\n::: {.cell}\n\n```{.r .cell-code}\navatar <- tibble(\n  name = c(\"Katara\", \"Toph\", \"Sokka\"),\n  bends = c(\"water\", \"earth\", NA),\n  friendly = TRUE,\n  numbers = c(1,2,3),\n  more_numbers = 1:3,\n  even_more = seq(1,3,1)\n)\n# print it\navatar\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n# A tibble: 3 × 6\n  name   bends friendly numbers more_numbers even_more\n  <chr>  <chr> <lgl>      <dbl>        <int>     <dbl>\n1 Katara water TRUE           1            1         1\n2 Toph   earth TRUE           2            2         2\n3 Sokka  <NA>  TRUE           3            3         3\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\navatar_by_row <- tribble(\n  ~name,    ~bends,  ~friendly, ~numbers,\n  \"Katara\", \"water\", TRUE, 1L,\n  \"Toph\",   \"earth\", TRUE, 2L,\n  \"Sokka\",  NA,      TRUE, 3L\n)\navatar_by_row\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n# A tibble: 3 × 4\n  name   bends friendly numbers\n  <chr>  <chr> <lgl>      <int>\n1 Katara water TRUE           1\n2 Toph   earth TRUE           2\n3 Sokka  <NA>  TRUE           3\n```\n:::\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

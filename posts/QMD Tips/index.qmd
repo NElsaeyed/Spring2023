@@ -72,7 +72,6 @@ print("a title")
 cat("and another title after it \n like this")
 ```
 
-
 And use this for rendering without the grey box with th r code in it, output only
 
 ```{r}
@@ -93,6 +92,8 @@ or use alt\>command\>i to automatically get the r block
 -   precedence issues (first to last)
 
 **8. Be aware of R code chunk options, and how to use eval, messages, error, warning, and echo.**
+
+When you create a new code chunk you should notice that the grey box starts and ends with three back ticks \`\`\`. One common mistake is to accidentally delete these back ticks. Remember, code chunks and text entry are different colours - if the colour of certain parts of your Markdown doesn't look right, check that you haven't deleted the back ticks.
 
 **9. Be able to set code chunk options per chunk, and/or for the whole document. Understand rules for precedence (which options will apply if both are set.)**
 

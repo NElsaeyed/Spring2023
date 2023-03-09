@@ -42,6 +42,7 @@ a <- 1
 class(a)
 typeof(a)
 ```
+
 ```{r}
 # make a vector with a thing in it
 a_thing <- 1
@@ -50,7 +51,6 @@ many_things <- c(1:10)
 
 # these are all now objects in the environment
 ```
-
 
 -   Tidy Data: Show that you understand what this means. Give an example of data this is in tidy format, and data that is not.
 
