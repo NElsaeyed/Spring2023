@@ -1,0 +1,112 @@
+---
+title: "Basic Skills"
+author: "Noon Elsaeyed"
+date: "2023-03-30"
+categories: [skills]
+---
+
+### Demonstration
+
+Demonstrate your ability to use these basic programming concepts in R.
+
+Question 1:
+
+```{r}
+# Create a character object
+my_string <- "Hi Professor Crump!"
+print(my_string)
+
+# Create a numeric object
+my_age <- 23
+print(my_age)
+
+# Create an integer object
+number_one_prof <- 1L
+print(number_one_prof)
+
+# Create a logical object
+the_best_prof <- TRUE
+print(the_best_prof)
+
+# Create a data frame
+my_dataframe <- data.frame(x = c(1, 2, 3), y = c("a", "b", "c"))
+print(my_dataframe)
+
+# Create a list
+my_list <- list(a = 1, b = "love RStudio", c = TRUE)
+print(my_list)
+
+# Indexing objects
+# Index a character object
+print(my_string[1])
+# Change an element of a list
+my_list[[2]] <- "Sike"
+print(my_list)
+
+
+```
+Question 2:
+
+```{r}
+# Check if two numbers are equal
+1 == 5
+# Output: FALSE
+
+1== 1.0
+# Output: TRUE
+
+# Check if a number is greater than or equal to another number
+5 >= 3
+# Output: TRUE
+
+7<= 3
+# Output: FALSE
+
+# Check if a character string is not equal to another string
+"Hi" != "Professor"
+# Output: TRUE
+
+"You Rock" != "You Rock"
+# Output: FALSE
+
+# is 16 divisible by 4 AND 8
+16 %% 4 == 0 & 16 %% 8 == 0
+#> [1] TRUE
+
+# is 16 divisible by 4 AND 3
+16 %% 4 == 0 & 16 %% 3 == 0
+#> [1] FALSE
+
+# is 16 divisible by 8 and 4 and 2
+16 %% 4 == 0 & 16 %% 8 == 0 & 16 %% 2 == 0
+#> [1] TRUE
+
+
+```
+
+Question 3:
+
+```{r}
+# Make a loop do something 5 times
+# i is the iterator
+# 1:5 creates a vector with 5 numbers in it, 1, 2, 3, 4, 5
+# the loop will run 5 times, because there are five things to assign to i
+for(i in 1:5) {
+  print("Psych Rules")
+}
+```
+Question 4:
+
+```{r}
+# Define a function that takes two arguments and returns their sum
+my_function_example <- function(x, y) {
+  return(x + y)
+}
+
+# Call the function with two arguments
+result <- my_function_example(9, 10)
+print(result)
+# Output: 7
+```
+
+
