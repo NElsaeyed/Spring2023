@@ -1,0 +1,57 @@
+---
+title: "Problem Solving"
+author: "Noon Elsaeyed"
+date: "2023-03-31"
+categories: [skills]
+---
+
+### 99 Bottles of Water
+
+```{r}
+for (i in 99:1) {
+  if (i == 1) {
+    cat(sprintf("%d bottle of water on the wall, %d bottle of water.\n", i, i))
+    cat("Take one down, pass it around, no more bottles of water on the wall.\n")
+  } else {
+    cat(sprintf("%d bottles of water on the wall, %d bottles of water.\n", i, i))
+    cat(sprintf("Take one down, pass it around, %d %s of water on the wall.\n", i-1, ifelse(i-1 == 1, "bottle", "bottles")))
+  }
+}
+
+```
+
+> In this code, we use a **for** loop to iterate over the numbers from 99 down to 1. For each number, we print out the appropriate verse of the song using the **cat()** function. When we get to 1, we print out the final verse of the song.
+
+### Rolling a Pair of Dice
+
+```{r}
+# Set the number of simulations and rolls per simulation
+n_simulations <- 10000
+n_rolls <- 2
+
+# Set the number of sides on each die
+n_sides <- 6
+
+# Initialize a vector to store the counts of each possible sum
+sum_counts <- rep(0, 11)
+
+# Simulate rolling the dice and counting the sums
+for (i in 1:n_simulations) {
+  # Roll the dice and compute the sum
+  rolls <- sample(1:n_sides, n_rolls, replace = TRUE)
+  roll_sum <- sum(rolls)
+
+  # Increment the count for the sum
+  sum_counts[roll_sum - 1] <- sum_counts[roll_sum - 1] + 1
+}
+
+# Compute the estimated probabilities of each possible sum
+sum_probs <- sum_counts / n_simulations
+
+# Print the estimated probabilities
+cat("Sum\tProbability\n")
+for (i in 2:12) {
+  cat(i, "\t", round(sum_probs[i - 1], 4), "\n")
+}
+```
+
