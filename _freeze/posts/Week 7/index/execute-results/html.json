@@ -1,0 +1,16 @@
+{
+  "hash": "45ef8f99cd9e90f0e262a90119b0ef55",
+  "result": {
+    "markdown": "---\ntitle: \"GGPlot Part 2\"\nauthor: \"Noon Elsaeyed\"\ndate: \"3/31/23\"\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.1     ✔ purrr   1.0.1\n✔ tibble  3.1.8     ✔ dplyr   1.1.0\n✔ tidyr   1.3.0     ✔ stringr 1.5.0\n✔ readr   2.1.4     ✔ forcats 1.0.0\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n```\n:::\n\n```{.r .cell-code}\ngrades <- c(2.5, 8, 4)\nstudents <- c(\"A\",\"B\",\"C\")\nstudent_performance <- tibble(students,grades)\n# alternate syntax\nstudent_performance <- tibble(\n  grades = c(2.5, 8, 4),\n  students = c(\"A\",\"B\",\"C\")\n)\n# ggplot bar graph\nggplot(student_performance, aes(x = students, y = grades))+\n  geom_bar(stat = \"identity\", fill = \"white\", color = \"blue\") +\n  scale_y_continuous(breaks = 0:10,limits = c(0,10)) +\n  theme_classic() +\n  geom_text(label=grades, position = position_dodge(width=.9), vjust=-0.4)+\n  xlab(\"Students\")+\n  ylab(\"Grades\") +\n  ggtitle(\"Student Performance\") +\n  theme_classic(base_size = 12) +\n  theme(plot.title = element_text(hjust = 0.5))\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n#Create a dataframe\nfactor_one <- rep(as.factor(c(\"A\", \"B\", \"C\")), 2)\nfactor_two <- rep(as.factor(c(\"IIA\", \"IIB\")), 3)\ndv_means <- c(20, 30, 40, 20, 40, 40)\ndv_SEs   <- c(4, 3.4, 4, 3, 2, 4)\nplot_df <- data.frame(factor_one,\n                      factor_two,\n                      dv_means,\n                      dv_SEs)\n# basic bar graph\nggplot(plot_df,\n       aes(\n         x = factor_one,\n         y = dv_means,\n         group = factor_two,\n         fill = factor_two\n       )) +\n  geom_bar(stat = \"identity\", position = \"dodge\")\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
