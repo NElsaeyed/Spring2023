@@ -1,0 +1,50 @@
+---
+title: "Data Wrangling"
+author: "Noon Elsaeyed"
+date: "4/05/23"
+---
+
+This post discusses essential functions from the dplyr package. These include: select, filter, arrange, mutate, summarize, and group_by. In you blog post demonstrate that you understand and can use each of these functions.
+
+```{r}
+library(tidyverse)
+library(dplyr)
+```
+
+```{r}
+budget <- read_csv("budget.csv", show_col_types = FALSE)
+```
+
+### Select
+
+```{r}
+# select single column by name
+product_dat1 <- budget %>% 
+  select(product) 
+
+# select single column by number
+product_dat2 <- budget %>% 
+  select(1) 
+
+# select multiple columns by number
+product_dat3 <- budget %>% 
+  select(2,3) 
+
+# print these selections
+budget %>% select(1) 
+budget %>% select(2,3) 
+product_dat1
+
+(product_dat4 <- budget %>% select(expenses_2019))
+```
+
+### Colon Notation
+
+```{r}
+# select columns individually
+sales2019 <- budget %>% select(region, product, sales_2019)
+
+# select columns with colon
+(sales2019 <- budget %>% select(region:sales_2019))
+
+```

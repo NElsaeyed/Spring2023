@@ -122,4 +122,3 @@ verified <- tweets %>%
   ungroup()
 knitr::kable(verified)
 ```
-

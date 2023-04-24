@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Noon Elsaeyed">
-<meta name="dcterms.date" content="2023-02-27">
+<meta name="dcterms.date" content="2023-04-05">
 
-<title>quartoCourseBlog - Data Import</title>
+<title>quartoCourseBlog - Data Wrangling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -168,12 +168,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Data Import</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">skills</div>
-                <div class="quarto-category">tips</div>
-              </div>
-                  </div>
+      <h1 class="title">Data Wrangling</h1>
+                      </div>
   </div>
     
   
@@ -189,7 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 27, 2023</p>
+        <p class="date">April 5, 2023</p>
       </div>
     </div>
     
@@ -207,10 +203,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="week-five-data-import" class="level3">
-<h3 class="anchored" data-anchor-id="week-five-data-import">Week Five: Data Import</h3>
+<p>This post discusses essential functions from the dplyr package. These include: select, filter, arrange, mutate, summarize, and group_by. In you blog post demonstrate that you understand and can use each of these functions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)     <span class="co"># includes readr &amp; tibble</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
 ✔ ggplot2 3.4.1     ✔ purrr   1.0.1
@@ -221,49 +216,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)           <span class="co"># for almost any data import/export</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)         <span class="co"># for SPSS, Stata,and SAS files</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)        <span class="co"># for Excel files</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4) <span class="co"># for Google Sheets</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>budget <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"budget.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="select" class="level3">
+<h3 class="anchored" data-anchor-id="select">Select</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select single column by name</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>product_dat1 <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(product) </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># select single column by number</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>product_dat2 <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span>) </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># select multiple columns by number</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>product_dat3 <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span> </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">2</span>,<span class="dv">3</span>) </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># print these selections</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>budget <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 1
+  region
+  &lt;chr&gt; 
+1 North 
+2 North 
+3 South 
+4 South 
+5 East  
+6 East  
+7 West  
+8 West  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>budget <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">2</span>,<span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 2
+  product sales_2019
+  &lt;chr&gt;        &lt;dbl&gt;
+1 widgets       2129
+2 gadgets        723
+3 widgets       1123
+4 gadgets       2022
+5 widgets       -728
+6 gadgets       -423
+7 widgets        633
+8 gadgets       1204</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>product_dat1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 1
+  product
+  &lt;chr&gt;  
+1 widgets
+2 gadgets
+3 widgets
+4 gadgets
+5 widgets
+6 gadgets
+7 widgets
+8 gadgets</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(product_dat4 <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span> <span class="fu">select</span>(expenses_2019))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 1
+  expenses_2019
+          &lt;dbl&gt;
+1           822
+2          1037
+3          1004
+4          -610
+5          -801
+6            94
+7           783
+8           433</code></pre>
+</div>
 </div>
 </section>
-<section id="write-your-own-data" class="level1">
-<h1>Write your own data</h1>
+<section id="colon-notation" class="level3">
+<h3 class="anchored" data-anchor-id="colon-notation">Colon Notation</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>avatar <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Katara"</span>, <span class="st">"Toph"</span>, <span class="st">"Sokka"</span>),</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">bends =</span> <span class="fu">c</span>(<span class="st">"water"</span>, <span class="st">"earth"</span>, <span class="cn">NA</span>),</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">friendly =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">numbers =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">more_numbers =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">even_more =</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>avatar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns individually</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sales2019 <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span> <span class="fu">select</span>(region, product, sales_2019)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns with colon</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>(sales2019 <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span> <span class="fu">select</span>(region<span class="sc">:</span>sales_2019))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 6
-  name   bends friendly numbers more_numbers even_more
-  &lt;chr&gt;  &lt;chr&gt; &lt;lgl&gt;      &lt;dbl&gt;        &lt;int&gt;     &lt;dbl&gt;
-1 Katara water TRUE           1            1         1
-2 Toph   earth TRUE           2            2         2
-3 Sokka  &lt;NA&gt;  TRUE           3            3         3</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>avatar_by_row <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>name,    <span class="sc">~</span>bends,  <span class="sc">~</span>friendly, <span class="sc">~</span>numbers,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Katara"</span>, <span class="st">"water"</span>, <span class="cn">TRUE</span>, 1L,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Toph"</span>,   <span class="st">"earth"</span>, <span class="cn">TRUE</span>, 2L,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Sokka"</span>,  <span class="cn">NA</span>,      <span class="cn">TRUE</span>, 3L</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>avatar_by_row</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 4
-  name   bends friendly numbers
-  &lt;chr&gt;  &lt;chr&gt; &lt;lgl&gt;      &lt;int&gt;
-1 Katara water TRUE           1
-2 Toph   earth TRUE           2
-3 Sokka  &lt;NA&gt;  TRUE           3</code></pre>
+<pre><code># A tibble: 8 × 3
+  region product sales_2019
+  &lt;chr&gt;  &lt;chr&gt;        &lt;dbl&gt;
+1 North  widgets       2129
+2 North  gadgets        723
+3 South  widgets       1123
+4 South  gadgets       2022
+5 East   widgets       -728
+6 East   gadgets       -423
+7 West   widgets        633
+8 West   gadgets       1204</code></pre>
 </div>
 </div>
 
