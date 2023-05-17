@@ -1,0 +1,119 @@
+---
+title: "Making Slides"
+author: "Noon Elsaeyed"
+date: "5/8/2023"
+format: 
+  revealjs:
+    incremental: true
+    theme: blood
+---
+
+## Quarto guide to slide decks
+
+Using Revealjs
+
+<https://quarto.org/docs/presentations/revealjs/>
+
+## Semester Begins
+
+-   Feel confident
+-   Stay up to date
+
+## First Midterm
+
+::: nonincremental
+-   Damn that was rough
+-   Lets try again
+:::
+
+## What Now?
+
+::: myclass
+Is this burn out yet
+:::
+
+## Not Yet
+
+This is just the begininng
+
+. . .
+
+It gets worse
+
+## Try to Regain Control
+
+::: columns
+::: {.column width="40%"}
+Make more lists
+:::
+
+::: {.column width="60%"}
+-   study times
+-   leisure times
+-   more study times
+:::
+:::
+
+## Midterm two
+
+Oh no, here we go again
+
+::: notes
+Well I guess thats that huh?
+:::
+
+## Nope We Keep Going
+
+```{r, echo = TRUE}
+hist(cars$speed)
+```
+
+## A Break For Mental Health {background-color="pink"}
+
+## A Website For Creative Block {background-iframe="https://nathanrooy.github.io/posts/2023-04-12/visual-book-recommender/" background-interactive="true" background-color="white"}
+
+------------------------------------------------------------------------
+
+::: r-fit-text
+Study and Grind
+:::
+
+##  {auto-animate="true"}
+
+::: {style="margin-top: 100px;"}
+Pretending I'm Not Going Insane Haha
+:::
+
+##  {auto-animate="true"}
+
+::: {style="margin-top: 200px; font-size: 3em; color: red;"}
+Insane But at Least I'm Passing
+:::
+
+##  {auto-animate="true"}
+
+::: r-fit-text
+count
+
+down
+
+to
+
+the
+
+end
+:::
+
+##  {auto-animate="true"}
+
+and
+
+here
+
+we
+
+are
+
+!!
+
+![](Slide%20Deck.jpg)

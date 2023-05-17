@@ -1,0 +1,20 @@
+{
+  "hash": "38984d43bfd57b12dd726f7bd8fde3dd",
+  "result": {
+    "markdown": "---\ntitle: \"Making Slides\"\nauthor: \"Noon Elsaeyed\"\ndate: \"5/8/2023\"\nformat: \n  revealjs:\n    incremental: true\n    theme: blood\n---\n\n\n## Quarto guide to slide decks\n\nUsing Revealjs\n\n<https://quarto.org/docs/presentations/revealjs/>\n\n## Semester Begins\n\n-   Feel confident\n-   Stay up to date\n\n## First Midterm\n\n::: nonincremental\n-   Damn that was rough\n-   Lets try again\n:::\n\n## What Now?\n\n::: myclass\nIs this burn out yet\n:::\n\n## Not Yet\n\nThis is just the begininng\n\n. . .\n\nIt gets worse\n\n## Try to Regain Control\n\n::: columns\n::: {.column width=\"40%\"}\nMake more lists\n:::\n\n::: {.column width=\"60%\"}\n-   study times\n-   leisure times\n-   more study times\n:::\n:::\n\n## Midterm two\n\nOh no, here we go again\n\n::: notes\nWell I guess thats that huh?\n:::\n\n## Nope We Keep Going\n\n\n::: {.cell}\n\n```{.r .cell-code}\nhist(cars$speed)\n```\n\n::: {.cell-output-display}\n![](index_files/figure-revealjs/unnamed-chunk-1-1.png){width=960}\n:::\n:::\n\n\n## A Break For Mental Health {background-color=\"pink\"}\n\n## A Website For Creative Block {background-iframe=\"https://nathanrooy.github.io/posts/2023-04-12/visual-book-recommender/\" background-interactive=\"true\" background-color=\"white\"}\n\n------------------------------------------------------------------------\n\n::: r-fit-text\nStudy and Grind\n:::\n\n##  {auto-animate=\"true\"}\n\n::: {style=\"margin-top: 100px;\"}\nPretending I'm Not Going Insane Haha\n:::\n\n##  {auto-animate=\"true\"}\n\n::: {style=\"margin-top: 200px; font-size: 3em; color: red;\"}\nInsane But at Least I'm Passing\n:::\n\n##  {auto-animate=\"true\"}\n\n::: r-fit-text\ncount\n\ndown\n\nto\n\nthe\n\nend\n:::\n\n##  {auto-animate=\"true\"}\n\nand\n\nhere\n\nwe\n\nare\n\n!!\n\n![](Slide%20Deck.jpg)\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

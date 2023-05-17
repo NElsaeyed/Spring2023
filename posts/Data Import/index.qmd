@@ -40,3 +40,5 @@ avatar_by_row <- tribble(
 )
 avatar_by_row
 ```
+
+![](Imports.webp)

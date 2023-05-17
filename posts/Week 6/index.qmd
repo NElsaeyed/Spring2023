@@ -1,5 +1,5 @@
 ---
-title: "Data Summaries"
+title: "Data Summaries: Week "
 author: "Noon Elsaeyed"
 date: "2023-03-15"
 categories: [skills,tips]
@@ -122,3 +122,5 @@ verified <- tweets %>%
   ungroup()
 knitr::kable(verified)
 ```
+
+![](Summaries.webp)

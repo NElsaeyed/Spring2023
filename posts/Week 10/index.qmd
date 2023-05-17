@@ -1,0 +1,57 @@
+---
+title: "Data Tidying"
+author: "Noon Elsaeyed"
+date: "4/26/23"
+---
+
+```{r, include=FALSE}
+library(tidyverse)
+library(knitr)
+```
+
+```{r}
+untidy_data <- read_csv("tidy_data.csv", show_col_types = FALSE)
+kable(untidy_data)
+```
+
+```{r}
+tidy_data <- read_csv("tidy_data.csv", show_col_types = FALSE)
+kable(tidy_data)
+```
+
+```{r}
+tidy_data_2 <- read_csv(file = "untidy_data.csv",
+                      show_col_types = FALSE) %>%
+  pivot_longer(
+    cols = itemsprice_2018:totalprice_2020,
+    names_to = c("category", "year"),
+    names_sep = "_", 
+    values_to = "value", 
+    names_transform = list(year = as.integer),
+    values_transform = list(value = as.character) 
+  ) %>%
+  pivot_wider(
+    id_cols = c(customer_id, year),
+    names_from = category,
+    values_from = value
+  ) %>%
+  separate(
+    col = itemsprice,
+    into = c("items", "price_per_item"),
+    sep = " ", 
+    remove = TRUE, 
+    convert = TRUE
+  ) %>%
+  mutate(
+    price_per_item = stringr::str_replace_all(
+      string = price_per_item, 
+      pattern = "[()]", 
+      replacement = ""
+    )
+  ) %>%
+  type_convert(
+    trim_ws = TRUE
+  )
+```
+
+![](tidydata.jpg)

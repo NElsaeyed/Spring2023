@@ -1,9 +1,0 @@
----
-title: "Using qmd Files"
-author: "Noon Elsaeyed"
-date: "2023-02-15"
-categories: [skills,tips]
----
-
-%>& is a pipe operator: (send the data into the next step)
-

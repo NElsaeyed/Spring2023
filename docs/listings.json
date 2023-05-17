@@ -2,8 +2,11 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/Week 9/index.html",
+      "/posts/Week 13/index.html",
       "/posts/Week 11/index.html",
+      "/posts/Week 12/index.html",
+      "/posts/Week 10/index.html",
+      "/posts/Week 9/index.html",
       "/posts/Midterm_Part_2/index.html",
       "/posts/Midterm_Part_1/index.html",
       "/posts/Week 8/index.html",
@@ -13,7 +16,6 @@
       "/posts/Data Import/index.html",
       "/posts/Data Visualization/index.html",
       "/posts/QMD Tips/index.html",
-      "/posts/Notes/index.html",
       "/posts/My Notes/index.html",
       "/posts/my_first_post/index.html",
       "/posts/Example_assignment/index.html"

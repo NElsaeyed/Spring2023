@@ -45,6 +45,7 @@ print(my_list)
 
 
 ```
+
 Question 2:
 
 ```{r}
@@ -95,6 +96,7 @@ for(i in 1:5) {
   print("Psych Rules")
 }
 ```
+
 Question 4:
 
 ```{r}
@@ -109,4 +111,4 @@ print(result)
 # Output: 7
 ```
 
-
+![](basic%20skills.jpg)
