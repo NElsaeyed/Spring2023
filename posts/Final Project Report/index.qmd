@@ -95,3 +95,5 @@ According to the graph, the rating for Hire Impression and Intellect were all hi
 The article and its linked data can be accessed here:
 
 https://journals.sagepub.com/doi/full/10.1177/0956797616667721
+
+![](speech-to-text-1024x683.jpg)
