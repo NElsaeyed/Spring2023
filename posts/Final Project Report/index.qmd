@@ -20,7 +20,7 @@ library(dplyr)
 
 all_data <- read_csv("SchroederEpley2015data.csv", show_col_types = FALSE)
 
-#  changing 
+#  ccalculate means and change column to a factor
 
 all_data$CONDITION
 
