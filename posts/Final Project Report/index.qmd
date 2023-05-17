@@ -1,0 +1,97 @@
+---
+title: "Final Project"
+author: "Noon Elsaeyed"
+date: "2023-05-17"
+categories: [report]
+---
+
+# Sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate's appeal
+
+### Loading and Pre-processing
+
+The data is pulled from Experiment 4 of the article. I would like to use words instead of 0s and 1s to refer to the experimental conditions.
+
+```{r}
+
+# loading the necessary libraries and data files
+
+library(tidyverse)
+library(dplyr)
+
+all_data <- read_csv("SchroederEpley2015data.csv", show_col_types = FALSE)
+
+#  changing 
+
+all_data$CONDITION
+
+aggregate(Intellect_Rating~CONDITION,all_data,mean)
+
+all_data$CONDITION <- as.factor(all_data$CONDITION)
+levels(all_data$CONDITION) <- c("transcript","audio")
+```
+
+### Creating Figures
+
+I would like to create a bar graph that has the means for each condition (transcript vs. audio), standard errors of the mean and the actual scores as little dots.
+
+```{r}
+# repeat CONDITION column three times
+
+condition <- rep(all_data$CONDITION,3)
+
+# make a ratings variable with all three ratings in one variable
+
+ratings <- c(all_data$Intellect_Rating,
+             all_data$Impression_Rating,
+             all_data$Hire_Rating)
+
+# make a new factor variable with the names of the ratings
+# need to repeat each level name the appropriate number of times
+
+num_to_repeat <- length(all_data$CONDITION)
+
+rating_type <- rep(c("Intellect","Impression","Hire"),num_to_repeat)
+
+# put the new variables into a data frame
+
+plot_all <- data.frame(condition,rating_type,ratings)
+
+# Get the means and standard errors for each rating by condition
+
+descriptive_all <- plot_all %>% 
+                    group_by(condition,rating_type) %>% 
+                    summarise(means= mean(ratings),
+                              SEs = sd(ratings)/sqrt(length(ratings)))
+
+# Make the plot
+
+ggplot(descriptive_all, aes(x=rating_type, y=means, group=condition))+ 
+  geom_bar(stat="identity", aes(fill=condition), position='dodge')+ 
+  geom_errorbar(aes(ymin=means-SEs,               
+                    ymax=means+SEs), 
+                width=.1, 
+                position = position_dodge(width=.9)) +
+  geom_point(data=plot_all, aes(x=rating_type, 
+                                y=ratings, 
+                                group=condition), 
+             alpha=.25, 
+             position = position_dodge(width=.9))+
+  geom_point(alpha=.25)+
+  ylab("Rating")
+```
+
+### Summary
+
+This article explores the impact of speech (transcript vs. audio) on job candidates' appeal and ratings of intellect, impression, and hire-ability.
+
+Dietze, P., & Knowles, E. D. (2016). Social Class and the Motivational Relevance of Other Human Beings: Evidence From Visual Attention. Psychological Science, 27(11), 1517--1527. https://doi.org/10.1177/0956797616667721
+
+The original hypothesis was that audio recordings of job candidates' speech will lead to higher ratings of intellect compared to written transcripts of the same speech content.
+
+In my report,I calculated means and standard errors for the different rating types (Intellect, Impression, and Hire) based on the conditions (transcript and audio). The resulting graph presents the means as bars, with error bars indicating the standard errors. It also includes individual ratings as points.
+
+According to the graph, the rating for Hire Impression and Intellect were all higher in the audio condition, by almost double. You can see from the bar that the hiring increased the most in audio between the three rating types. These findings are consistent with the experiments hypothesis.
+
+The article and its linked data can be accessed here:
+
+https://journals.sagepub.com/doi/full/10.1177/0956797616667721
